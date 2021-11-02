@@ -7,6 +7,7 @@ from warnings import warn
 import mudata
 from mudata import MuData
 
+from .utils import sizefmt
 
 PREFIX = "\u25A0 "
 
@@ -45,7 +46,7 @@ class MuDataSet:
                                     % (
                                         "=" * done,
                                         " " * (50 - done),
-                                        finfo["size"],
+                                        sizefmt(finfo["size"]),
                                         self.name,
                                         finfo["name"],
                                     )
@@ -71,14 +72,14 @@ class MuDataSet:
                     for chunk in iter(lambda: f.read(chunk_size), b""):
                         hash.update(chunk)
                 if hash.hexdigest() == finfo[hashf_name]:
-                    print(f"{PREFIX}Checksum is validated ({hashf_name})")
+                    print(f"{PREFIX}Checksum is validated ({hashf_name}) for {finfo['name']}")
                 else:
                     warn(
-                        f"{PREFIX}Checksum does not match ({hashf_name}), will re-download the data"
+                        f"{PREFIX}Checksum does not match ({hashf_name}), will re-download {finfo['name']}"
                     )
                     callback(finfo, data_path)
             else:
-                warn("No supported checksum to validate has been provided for the dataset")
+                warn(f"No supported checksum to validate has been provided for {finfo['name']}")
 
         data_dir = os.path.expanduser(data_dir)
 
@@ -97,7 +98,9 @@ class MuDataSet:
             if not os.path.exists(data_path):
                 dwnld(finfo, data_path)
             else:
-                print(f"{PREFIX}Dataset {self.name} has been found at {data_path}")
+                print(
+                    f"{PREFIX}File {finfo['name']} from {self.name} has been found at {data_path}"
+                )
                 if check_sum:
                     chck_hsm(finfo, data_path, dwnld)
                 else:
