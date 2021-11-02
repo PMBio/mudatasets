@@ -2,7 +2,7 @@ from ..core import MuDataSet
 from ..utils import sizefmt
 
 
-class PBMC10kMultiome(MuDataSet):
+class PBMC3kMultiome(MuDataSet):
     """
     Sorted human granulocytes
     from peripheral blood
@@ -44,4 +44,4 @@ class PBMC10kMultiome(MuDataSet):
 
 
 def dataset():
-    return PBMC10kMultiome()
+    return PBMC3kMultiome()
