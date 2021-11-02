@@ -17,7 +17,7 @@ class Brain3kMultiome(MuDataSet):
                 "name": "filtered_feature_bc_matrix.h5",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/human_brain_3k/human_brain_3k_filtered_feature_bc_matrix.h5",
                 "md5": "ba0b765eddb138d6d6294227879b9a9b",
-                "size": 162282142,
+                "size": 68830100,
                 "required": True,
             },
         ]
