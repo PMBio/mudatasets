@@ -1,6 +1,6 @@
 # Multimodal Datasets
 
-`mudatasets` provides some public datasets with multimodal data, primarily focosing on multimodal omics datasets.
+`mudatasets` provides some public datasets with multimodal data, primarily focusing on multimodal omics datasets.
 
 [MuData library](https://github.com/PMBio/mudata) | [MuData documentation](https://mudata.readthedocs.io/)
 
@@ -28,7 +28,7 @@ mds.list_datasets()
 ### Load a dataset
 
 ```py
-mdata = mds.load("pbmc10k_multiome")
+mdata = mds.load("pbmc3k_multiome")
 print(mdata)
 ```
 
