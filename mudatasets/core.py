@@ -157,3 +157,20 @@ def load(
         return mdata, data_info
     else:
         return mdata
+
+# List dataset info
+def info(
+    dataset
+) -> MuData:
+    """
+    List info on a dataset and included files
+    """
+    dataset_module = ".datasets." + dataset
+    try:
+        dataset = import_module(dataset_module, package=__package__)
+    except ModuleNotFoundError as e:
+        raise ValueError(f"Dataset {dataset} not found")
+
+    dset = dataset.dataset()  # MuDataSet
+    return dset.info
+
