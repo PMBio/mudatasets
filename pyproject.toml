@@ -27,7 +27,8 @@ docs = [
     "sphinx-rtd-theme",
     "readthedocs-sphinx-search",
     "nbsphinx",
-    "sphinx_automodapi"
+    "sphinx_automodapi",
+    "insegel"
 ]
 
 [tool.flit.metadata.urls]
