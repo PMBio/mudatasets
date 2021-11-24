@@ -14,6 +14,7 @@ Please refer to the `mudata documentation <https://mudata.readthedocs.io/en/late
 
    install
    datasets/multiome
+   datasets/citeseq
    api/index
    changelog
 
