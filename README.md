@@ -36,4 +36,6 @@ Some common attributes for `.load()` are:
 
 - `data_dir=` for location to save the dataset (`~/mudatasets/` by default)
 - `with_info=True` for also returning the second argument with dataset description as a dictionary (`False` by default)
-- `backed=True` for reading data in a backed format, only for `.h5mu` files (`True` by default)
+- `backed=True` for reading data in a backed format, only for `.h5mu` and `.h5ad` files (`True` by default)
+- `files=...` for downloading specific files from the dataset
+- `full=True` for downloading all the files defined for the dataset (`False` by default)
