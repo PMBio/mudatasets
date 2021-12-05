@@ -37,5 +37,19 @@ Some common attributes for `.load()` are:
 - `data_dir=` for location to save the dataset (`~/mudatasets/` by default)
 - `with_info=True` for also returning the second argument with dataset description as a dictionary (`False` by default)
 - `backed=True` for reading data in a backed format, only for `.h5mu` and `.h5ad` files (`True` by default)
-- `files=...` for downloading specific files from the dataset
+- `files=` for downloading specific files from the dataset
 - `full=True` for downloading all the files defined for the dataset (`False` by default)
+
+### Get dataset info
+
+```py
+mds.info("pbmc3k_multiome")
+```
+
+### Webpage with all the files
+
+```py
+mds.serve_webpage(port=8000)
+```
+
+This command will launch a server providing a simple (temporarily created) HTML page at http://localhost:8000.
