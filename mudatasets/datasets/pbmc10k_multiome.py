@@ -12,14 +12,39 @@ class PBMC10kMultiome(MuDataSet):
     def __init__(self):
         self.name = "pbmc10k_multiome"
         self.version = "1.0.0"
-        self.format = "10x_h5"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
+                "description": "Filtered feature barcode matrix",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_filtered_feature_bc_matrix.h5",
+                "format": "10x_h5",
                 "md5": "920b16bf1e63b6610bf74bf9040ed386",
                 "size": 162282142,
-                "required": True,
+                "raw": True,
+            },
+            {
+                "name": "atac_fragments.tsv.gz",
+                "description": "ATAC per fragment information",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_fragments.tsv.gz",
+                "md5": "a959ef83dfb9cae6ff73ab0147d547d1",
+                "size": 0,
+                "raw": True,
+            },
+            {
+                "name": "atac_fragments.tsv.gz.tbi",
+                "description": "ATAC per fragment information index",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_fragments.tsv.gz.tbi",
+                "md5": "df967acbe28da89aed9cfdd89370b7af",
+                "size": 0,
+                "raw": True,
+            },
+            {
+                "name": "atac_peaks.bed",
+                "description": "ATAC peak locations",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_peaks.bed",
+                "md5": "fcd3f4ec84bd23a1b985e8efc511d6c0",
+                "size": 0,
+                "raw": True,
             },
         ]
 
@@ -29,7 +54,6 @@ class PBMC10kMultiome(MuDataSet):
         self.data = {
             "name": self.name,
             "version": self.version,
-            "format": self.format,
             "total_size": self.total_size,
             "files": self.files,
         }

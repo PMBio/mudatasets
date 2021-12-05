@@ -12,14 +12,24 @@ class PBMC3kCITEseq(MuDataSet):
     def __init__(self):
         self.name = "pbmc5k_citeseq"
         self.version = "1.0.0"
-        self.format = "10x_h5"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
                 "url": "https://cf.10xgenomics.com/samples/cell-exp/3.0.2/5k_pbmc_protein_v3/5k_pbmc_protein_v3_filtered_feature_bc_matrix.h5",
                 "md5": "3366a47283177fe9af143d5819fad61f",
+                "format": "10x_h5",
                 "size": 17129253,
-                "required": True,
+                "raw": True,
+            },
+            {
+                "name": "minipbcite.h5mu",
+                "url": "...",
+                "md5": "6dc66fc56970193ad498b8eb5d96306c",
+                "size": 17151496,
+                "raw": False,
+                "subsampled": True,
+                "subsample_fraction": 0.1,
+                "selected_features": True,
             },
         ]
 
@@ -29,7 +39,6 @@ class PBMC3kCITEseq(MuDataSet):
         self.data = {
             "name": self.name,
             "version": self.version,
-            "format": self.format,
             "total_size": self.total_size,
             "files": self.files,
         }
