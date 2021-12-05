@@ -19,6 +19,7 @@ classifiers = [
 requires-python = ">= 3.9"
 requires = [
     "mudata",
+    "tqdm"
 ]
 
 [tool.flit.metadata.requires-extra]
