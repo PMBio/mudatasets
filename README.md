@@ -52,4 +52,4 @@ mds.info("pbmc3k_multiome")
 mds.serve_webpage(port=8000)
 ```
 
-This command will launch a server providing a simple (temporarily created) HTML page at http://localhost:8000.
+This command will launch a server providing a simple (temporarily created) HTML page at http://localhost:8000 with files across all of the datasets listed.
