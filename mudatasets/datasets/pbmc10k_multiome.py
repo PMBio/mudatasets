@@ -27,7 +27,7 @@ class PBMC10kMultiome(MuDataSet):
                 "description": "ATAC per fragment information",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_fragments.tsv.gz",
                 "md5": "a959ef83dfb9cae6ff73ab0147d547d1",
-                "size": 0,
+                "size": 2051027831,
                 "raw": True,
             },
             {
@@ -35,7 +35,7 @@ class PBMC10kMultiome(MuDataSet):
                 "description": "ATAC per fragment information index",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_fragments.tsv.gz.tbi",
                 "md5": "df967acbe28da89aed9cfdd89370b7af",
-                "size": 0,
+                "size": 1027204,
                 "raw": True,
             },
             {
@@ -43,7 +43,7 @@ class PBMC10kMultiome(MuDataSet):
                 "description": "ATAC peak locations",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_peaks.bed",
                 "md5": "fcd3f4ec84bd23a1b985e8efc511d6c0",
-                "size": 0,
+                "size": 2588261,
                 "raw": True,
             },
         ]
