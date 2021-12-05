@@ -228,3 +228,30 @@ def info(
     dset = dataset.dataset()  # MuDataSet
     return dset.info
 
+def serve_webpage(port=8000):
+    import http.server
+    import socketserver
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as dirpath:
+        index = os.path.join(dirpath, "index.html")
+        with open(index, mode="w") as f:
+            f.write("<html><body>\n")
+            f.write("<h1><pre>mudatasets</pre></h1>\n")
+            f.write("<p>Source code: <a href='https://github.com/gtca/mudatasets'>gtca/mudatasets</a></p></br>\n")
+            for dataset in list_datasets():
+                f.write(f"<h2>{dataset}</h2>\n")
+                f.write("<ul>")
+                for file in info(dataset)["files"]:
+                    f.write(f"<li><a href={file['url']}>{file['name']}</a> ({sizefmt(file['size'])})</li>")
+                f.write("</ul>")
+            f.write("</body></html>")
+            
+        DIRECTORY = dirpath
+        class Handler(http.server.SimpleHTTPRequestHandler):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, directory=DIRECTORY, **kwargs)
+        
+        with socketserver.TCPServer(("", port), Handler) as httpd:
+            print("serving at port", port)
+            httpd.serve_forever()
