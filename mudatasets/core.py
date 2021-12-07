@@ -128,7 +128,7 @@ class MuDataSet:
                 break
         if priority_file is None:
             if maybe_priority_file is None:
-                raise ValueError(f"One of the loaded files has to be in one of the following formats: {', '.join(MAINFORMATS)}.")
+                warn(f"None of the files is in the format that can be automatically loaded: {', '.join(MAINFORMATS)}.")
             else:
                 priority_file = maybe_priority_file
 
@@ -192,20 +192,27 @@ def load(
         data_dir=data_dir, full=full, files=files, version=version, chunk_size=chunk_size
     )
 
-    if data_path.endswith(".h5mu") or data_path.endswith(".h5ad"):
-        maybe_backed = " in backed mode" if backed else ""
-        print(f"{PREFIX}Loading {os.path.basename(data_path)}{maybe_backed}...")
-        mdata = mudata.read(data_path, backed=backed)
-    elif data_path.endswith(".h5"):
-        if backed:
-            warn("Dataset is in the 10X .h5 format and can't be loaded as backed.")
-        import muon as mu
+    mdata = None
+    if data_path is not None:
+        if data_path.endswith(".h5mu") or data_path.endswith(".h5ad"):
+            maybe_backed = " in backed mode" if backed else ""
+            print(f"{PREFIX}Loading {os.path.basename(data_path)}{maybe_backed}...")
+            mdata = mudata.read(data_path, backed=backed)
+        elif data_path.endswith(".h5"):
+            if backed:
+                warn("Dataset is in the 10X .h5 format and can't be loaded as backed.")
+            import muon as mu
 
-        print(f"{PREFIX}Loading {os.path.basename(data_path)}...")
-        mdata = mu.read_10x_h5(data_path)
-    else:
-        warn("File to be loaded does not seem to have accepted extensions: h5mu, h5ad, h5.")
-        mdata = mudata.read(data_path, backed=backed)
+            print(f"{PREFIX}Loading {os.path.basename(data_path)}...")
+            mdata = mu.read_10x_h5(data_path)
+    
+    if mdata is None:
+        # Check if there's a custom loader
+        custom_loader = getattr(dset, "load", None)
+        if callable(custom_loader):
+            mdata = dset.load()
+        else:
+            warn("There seems to be no file with accepted extension to load (h5mu, h5ad, h5). There is no custom loader either.")
 
     if with_info:
         return mdata, data_info
