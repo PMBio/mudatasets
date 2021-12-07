@@ -23,7 +23,7 @@ class PBMC3kCITEseq(MuDataSet):
             },
             {
                 "name": "minipbcite.h5mu",
-                "url": "https://github.com/gtca/demo-datasets/blob/main/datasets/minipbcite.h5mu?raw=true",
+                "url": "https://github.com/gtca/h5xx-datasets/blob/main/datasets/minipbcite.h5mu?raw=true",
                 "md5": "6dc66fc56970193ad498b8eb5d96306c",
                 "size": 17151496,
                 "raw": False,

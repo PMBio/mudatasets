@@ -12,14 +12,39 @@ class PBMC3kMultiome(MuDataSet):
     def __init__(self):
         self.name = "pbmc3k_multiome"
         self.version = "1.0.0"
-        self.format = "10x_h5"
+        self.url = "https://www.10xgenomics.com/resources/datasets/pbmc-from-a-healthy-donor-granulocytes-removed-through-cell-sorting-3-k-1-standard-2-0-0"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_3k/pbmc_granulocyte_sorted_3k_filtered_feature_bc_matrix.h5",
                 "md5": "41925fd911399ee12174407334aba0c3",
                 "size": 41498406,
-                "required": True,
+                "format": "10x_h5",
+                "raw": True,
+            },
+            {
+                "name": "atac_fragments.tsv.gz",
+                "description": "ATAC per fragment information",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/pbmc_granulocyte_sorted_3k/pbmc_granulocyte_sorted_3k_atac_fragments.tsv.gz",
+                "md5": "d49f4012ff65d9edfee86281d6afb286",
+                "size": 467587065,
+                "raw": True,
+            },
+            {
+                "name": "atac_fragments.tsv.gz.tbi",
+                "description": "ATAC per fragment information index",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/pbmc_granulocyte_sorted_3k/pbmc_granulocyte_sorted_3k_atac_fragments.tsv.gz.tbi",
+                "md5": "7f73915aff0f3ed18b133ca9e0af2bb2",
+                "size": 667597,
+                "raw": True,
+            },
+            {
+                "name": "atac_peaks.bed",
+                "description": "ATAC peak locations",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/pbmc_granulocyte_sorted_3k/pbmc_granulocyte_sorted_3k_atac_peaks.bed",
+                "md5": "6259822fc2958a8854bd7b52424b5b57",
+                "size": 2350219,
+                "raw": True,
             },
         ]
 
@@ -29,7 +54,6 @@ class PBMC3kMultiome(MuDataSet):
         self.data = {
             "name": self.name,
             "version": self.version,
-            "format": self.format,
             "total_size": self.total_size,
             "files": self.files,
         }
