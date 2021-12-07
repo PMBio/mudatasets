@@ -210,7 +210,7 @@ def load(
         # Check if there's a custom loader
         custom_loader = getattr(dset, "load", None)
         if callable(custom_loader):
-            mdata = dset.load()
+            mdata = dset.load(data_dir=data_dir)
         else:
             warn("There seems to be no file with accepted extension to load (h5mu, h5ad, h5). There is no custom loader either.")
 
