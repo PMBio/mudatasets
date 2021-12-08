@@ -11,6 +11,7 @@ class Brain3kMultiome(MuDataSet):
     def __init__(self):
         self.name = "brain3k_multiome"
         self.version = "2.0.0"
+        self.url = "https://www.10xgenomics.com/resources/datasets/frozen-human-healthy-brain-tissue-3-k-1-standard-2-0-0"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
@@ -42,6 +43,14 @@ class Brain3kMultiome(MuDataSet):
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/human_brain_3k/human_brain_3k_atac_peaks.bed",
                 "md5": "55abaab48951b115f696e9255a2da33b",
                 "size": 3205172,
+                "raw": True,
+            },
+            {
+                "name": "atac_peak_annotation.tsv",
+                "description": "ATAC peak annotations based on proximal genes",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/2.0.0/human_brain_3k/human_brain_3k_atac_peak_annotation.tsv",
+                "md5": "5c9cde0442444bbc2c4c57c577db6c80",
+                "size": 7677885,
                 "raw": True,
             },
         ]

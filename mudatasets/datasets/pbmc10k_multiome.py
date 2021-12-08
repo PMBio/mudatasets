@@ -12,6 +12,7 @@ class PBMC10kMultiome(MuDataSet):
     def __init__(self):
         self.name = "pbmc10k_multiome"
         self.version = "1.0.0"
+        self.url = "https://www.10xgenomics.com/resources/datasets/pbmc-from-a-healthy-donor-granulocytes-removed-through-cell-sorting-10-k-1-standard-1-0-0"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
@@ -44,6 +45,14 @@ class PBMC10kMultiome(MuDataSet):
                 "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_peaks.bed",
                 "md5": "fcd3f4ec84bd23a1b985e8efc511d6c0",
                 "size": 2588261,
+                "raw": True,
+            },
+            {
+                "name": "atac_peak_annotation.tsv",
+                "description": "ATAC peak annotations based on proximal genes",
+                "url": "https://cf.10xgenomics.com/samples/cell-arc/1.0.0/pbmc_granulocyte_sorted_10k/pbmc_granulocyte_sorted_10k_atac_peak_annotation.tsv",
+                "md5": "84696e7ce8b64bfccff7ecc4e3c7ea6b",
+                "size": 5357234,
                 "raw": True,
             },
         ]
