@@ -201,10 +201,16 @@ def load(
         elif data_path.endswith(".h5"):
             if backed:
                 warn("Dataset is in the 10X .h5 format and can't be loaded as backed.")
-            import muon as mu
-
-            print(f"{PREFIX}Loading {os.path.basename(data_path)}...")
-            mdata = mu.read_10x_h5(data_path)
+            try:
+                import muon as mu
+                print(f"{PREFIX}Loading {os.path.basename(data_path)}...")
+                mdata = mu.read_10x_h5(data_path)
+            except ImportError as e:
+                warn("Muon is not installed and is required to load raw data. Install pysam from PyPI (`pip install muon`) or from GitHub (`pip install git+https://github.com/PMBio/muon`)")
+                if with_info:
+                    return None, data_info
+                else:
+                    return None
     
     if mdata is None:
         # Check if there's a custom loader
@@ -234,6 +240,31 @@ def info(
 
     dset = dataset.dataset()  # MuDataSet
     return dset.info
+
+
+# List dataset files
+def list_files(
+    dataset,
+    version=None,
+) -> MuData:
+    """
+    List file names available for a dataset
+    """
+    dset_info = info(dataset)
+    if version is None:
+        version = dset_info['version']
+    versions = [i for i in dset_info['data_versions'] if i['version'] == version]
+    if len(versions) == 0:
+        all_versions = [i['version'] for i in dset_info['data_versions']]
+        raise ValueError(f"Version {version} is not available for the dataset {dataset}. Available versions are: {', '.join(all_versions)}.")
+    # Versions should be unique
+    if len(versions) > 1:
+        warn(f"There are multiple sets of files with the same version number {version}. Please submit an issue: https://github.com/gtca/mudatasets/issues.")
+
+    files = versions[0]['files']
+    file_names = [f['name'] for f in files]
+
+    return file_names
 
 def serve_webpage(port=8000):
     import http.server

@@ -19,7 +19,8 @@ classifiers = [
 requires-python = ">= 3.7"
 requires = [
     "mudata",
-    "tqdm"
+    "tqdm",
+    "requests"
 ]
 
 [tool.flit.metadata.requires-extra]
@@ -30,6 +31,9 @@ docs = [
     "nbsphinx",
     "sphinx_automodapi",
     "insegel"
+]
+muon = [
+    "muon"
 ]
 
 [tool.flit.metadata.urls]
