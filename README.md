@@ -7,10 +7,11 @@
 ## Installation
 
 ```
-# Stable
-pip install mudatasets
+# Stable, with muon
+pip install "mudatasets[muon]"
 # Dev
 pip install git+https://github.com/gtca/mudatasets
+pip install git+https://github.com/gtca/muon
 ```
 
 ## Getting started
