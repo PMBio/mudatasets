@@ -47,6 +47,12 @@ Some common attributes for `.load()` are:
 mds.info("pbmc3k_multiome")
 ```
 
+### List dataset file names
+
+```py
+mds.list_files("pbmc3k_multiome")
+```
+
 ### Webpage with all the files
 
 ```py
