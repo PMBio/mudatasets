@@ -20,7 +20,8 @@ requires-python = ">= 3.7"
 requires = [
     "mudata",
     "tqdm",
-    "requests"
+    "requests",
+    "muon"
 ]
 
 [tool.flit.metadata.requires-extra]
