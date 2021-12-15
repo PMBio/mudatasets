@@ -6,6 +6,8 @@
 
 ## Installation
 
+[![PyPi version](https://img.shields.io/pypi/v/mudata)](https://pypi.org/project/mudata)
+
 ```
 # Stable, with muon
 pip install "mudatasets[muon]"
