@@ -6,7 +6,7 @@
 
 ## Installation
 
-[![PyPi version](https://img.shields.io/pypi/v/mudata)](https://pypi.org/project/mudatasets)
+[![PyPi version](https://img.shields.io/pypi/v/mudatasets)](https://pypi.org/project/mudatasets)
 
 ```
 # Stable, with muon
