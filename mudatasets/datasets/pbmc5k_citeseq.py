@@ -2,7 +2,7 @@ from ..core import MuDataSet
 from ..utils import sizefmt
 
 
-class PBMC3kCITEseq(MuDataSet):
+class PBMC5kCITEseq(MuDataSet):
     """
     Peripheral blood mononuclear cells (PBMCs) 
     stained with a panel of 31 TotalSeq™-B antibodies
@@ -12,6 +12,7 @@ class PBMC3kCITEseq(MuDataSet):
     def __init__(self):
         self.name = "pbmc5k_citeseq"
         self.version = "1.0.0"
+        self.url = "https://www.10xgenomics.com/resources/datasets/5-k-peripheral-blood-mononuclear-cells-pbm-cs-from-a-healthy-donor-v-3-chemistry-3-1-standard-3-0-2"
         self.files = [
             {
                 "name": "filtered_feature_bc_matrix.h5",
@@ -29,6 +30,16 @@ class PBMC3kCITEseq(MuDataSet):
                 "raw": False,
                 "subsampled": True,
                 "subsample_fraction": 0.1,
+                "selected_features": True,
+            },
+            {
+                "name": "pbmc5k_citeseq_processed.h5mu",
+                "url": "https://osf.io/9yexr/download",
+                "md5": "79317dcb69368acc43954eeb04125e1f",
+                "size": 404121662,
+                "raw": False,
+                "processed": True,
+                "subsampled": False,
                 "selected_features": True,
             },
         ]
@@ -53,4 +64,4 @@ class PBMC3kCITEseq(MuDataSet):
 
 
 def dataset():
-    return PBMC3kCITEseq()
+    return PBMC5kCITEseq()
