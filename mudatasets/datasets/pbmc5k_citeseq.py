@@ -35,8 +35,8 @@ class PBMC5kCITEseq(MuDataSet):
             {
                 "name": "pbmc5k_citeseq_processed.h5mu",
                 "url": "https://osf.io/9yexr/download",
-                "md5": "79317dcb69368acc43954eeb04125e1f",
-                "size": 404121662,
+                "md5": "31806e5b7975d0ed8e06af8fa3cc2519",
+                "size": 38392390,
                 "raw": False,
                 "processed": True,
                 "subsampled": False,
